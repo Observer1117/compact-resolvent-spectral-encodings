@@ -26,7 +26,7 @@ Release-blocking checks are separated from post-release archival tasks below.
 ## Publication sequence
 
 - [x] Dedicated public GitHub repository identified as `Observer1117/compact-resolvent-spectral-encodings`.
-- [ ] Push the reviewed package as the initial commit.
+- [x] Push the reviewed package to the dedicated public repository.
 - [ ] Create tag and release `v0.2.0`.
 - [ ] Create the public OSF Project and upload an independent copy.
 - [ ] Create an immutable public OSF Registration.
