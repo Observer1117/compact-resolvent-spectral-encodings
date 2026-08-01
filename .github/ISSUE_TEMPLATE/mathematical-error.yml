@@ -1,0 +1,34 @@
+name: Mathematical error
+description: Report a possible error in a definition, statement, proof, formula, or example.
+title: "[Mathematical error] "
+labels:
+  - mathematical-error
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Give the version, section, theorem/proposition/example number, equation, or PDF page.
+      placeholder: "v0.2, Proposition 3.4, page ..."
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim under review
+      description: State the precise claim or step that may be incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: objection
+    attributes:
+      label: Mathematical objection
+      description: Give a counterexample, failed implication, missing hypothesis, or invalid derivation.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: Optional corrected statement, hypothesis, or proof step.
+

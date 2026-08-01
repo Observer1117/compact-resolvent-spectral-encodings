@@ -1,0 +1,24 @@
+Reproducibility record
+======================
+
+Manuscript source: source/main.tex
+Verification date: 2026-08-01
+Build command: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+
+Verification environment:
+- latexmk 4.83 (31 January 2024)
+- pdfTeX 3.141592653-2.6-1.40.25
+- LaTeX2e 2023-11-01 patch level 1
+- TeX Live 2023/Debian
+
+Result:
+- 13 A4 pages
+- no final-pass LaTeX warnings
+- no undefined references or citations
+- no overfull or underfull boxes
+- all fonts embedded
+- rebuilt PDF is byte-for-byte identical to the audited release PDF
+- SHA-256: 6251abd8802fce8c67e5c24c2278cda12d10bb169678b534a3075d5237b9192b
+
+The earlier arXiv-oriented audit also targeted TeX Live 2025 compatibility.
+

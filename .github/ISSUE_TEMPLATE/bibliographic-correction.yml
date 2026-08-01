@@ -1,0 +1,31 @@
+name: Bibliographic or typographical correction
+description: Report a citation, metadata, notation, spelling, or typesetting issue.
+title: "[Correction] "
+labels:
+  - correction
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Give the file, version, page, section, or bibliography item.
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current text or metadata
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Verification source
+      description: Optional DOI, publisher page, bibliographic record, or other authoritative source.
+

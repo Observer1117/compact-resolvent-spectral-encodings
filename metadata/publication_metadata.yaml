@@ -1,0 +1,58 @@
+schema_version: 1
+work:
+  title: "A Layered Framework for Compact-Resolvent Spectral Encodings"
+  short_title: "Compact-Resolvent Spectral Encodings"
+  version: "0.2"
+  release_tag: "v0.2.0"
+  manuscript_revision_date: "2026-08-01"
+  resource_type: "Expository framework preprint"
+  peer_reviewed: false
+  language: "en"
+  license: "CC-BY-4.0"
+  doi: null
+  publication_url: null
+author:
+  given_name: "Stassis"
+  family_name: "Stashkevichyus"
+  display_name: "Stassis Stashkevichyus"
+  affiliation: "Independent Researcher"
+  location: "Vilnius, Lithuania"
+  orcid: "https://orcid.org/0009-0000-2294-705X"
+  email: "theobserver.of.multiverses@proton.me"
+program:
+  name: "Stassis Research Program"
+  website: "https://theobserverofmultiverses.info"
+classification:
+  msc_2020_primary:
+    - "47A10"
+    - "47A60"
+  msc_2020_secondary:
+    - "58J50"
+    - "11F27"
+  suggested_subjects:
+    - "Spectral theory"
+    - "Functional analysis"
+keywords:
+  - "compact resolvent"
+  - "heat-admissible operator"
+  - "heat trace"
+  - "spectral counting measure"
+  - "Laplace transform"
+  - "complex-time heat trace"
+  - "theta kernel"
+  - "spectral encoding"
+  - "realization hierarchy"
+status_statement: >-
+  Expository and operator-theoretic framework note. This manuscript
+  systematizes standard spectral constructions and does not claim a new
+  general spectral theorem. It has not been peer reviewed.
+repository:
+  suggested_name: "compact-resolvent-spectral-encodings"
+  github_url: "https://github.com/Observer1117/compact-resolvent-spectral-encodings"
+  default_branch: "main"
+  release_title: "Public framework preprint v0.2.0"
+archive:
+  osf_project_url: null
+  osf_registration_url: null
+  registration_type: "Open-Ended Registration"
+  public_immediately: true

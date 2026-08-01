@@ -1,0 +1,1204 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{booktabs,array,tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=-1\fi
+
+\definecolor{deepblue}{RGB}{28,65,112}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=deepblue,
+  citecolor=deepblue,
+  urlcolor=deepblue,
+  pdftitle={A Layered Framework for Compact-Resolvent Spectral Encodings},
+  pdfauthor={Stassis Stashkevichyus; Stassis Research Program},
+  pdfsubject={Compact resolvent; heat trace; spectral measure; complex-time encoding; theta kernels; readout factorization},
+  pdfkeywords={compact resolvent, heat trace, spectral measure, Laplace transform, theta function, spectral encoding}
+}
+
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Compact-Resolvent Spectral Encodings}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[C]{Compact-Resolvent Spectral Encodings}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.65em}{}
+\setlist[itemize]{leftmargin=1.55em,itemsep=0.25em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.75em,itemsep=0.25em,topsep=0.35em}
+\setlength{\emergencystretch}{2em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Hcal}{\mathcal H}
+\newcommand{\Scal}{\mathcal S}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Dom}{\operatorname{Dom}}
+\newcommand{\ran}{\operatorname{ran}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Id}{\mathrm I}
+\newcommand{\e}{\mathrm e}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE\bfseries A Layered Framework for Compact-Resolvent\\[0.12cm]
+Spectral Encodings\par}
+\vspace{0.40cm}
+{\large Stassis Stashkevichyus\par}
+\vspace{0.08cm}
+{\normalsize Stassis Research Program\par}
+\vspace{0.05cm}
+{\normalsize Independent Researcher, Vilnius, Lithuania\par}
+\vspace{0.05cm}
+{\normalsize ORCID:
+\href{https://orcid.org/0009-0000-2294-705X}{0009-0000-2294-705X}\par}
+\vspace{0.05cm}
+{\normalsize Email:
+\href{mailto:theobserver.of.multiverses@proton.me}{theobserver.of.multiverses@proton.me}\par}
+\vspace{0.14cm}
+{\normalsize Expository framework preprint -- revised 1 August 2026\par}
+\end{center}
+
+\begin{abstract}
+Spectral generating functions are often discussed as though compactness of an
+underlying carrier, discreteness of an operator spectrum, trace-class heat
+evolution, and geometric realizability were interchangeable. They are not.
+This expository framework separates these assertions into typed layers.
+The operator layer consists of a nonnegative self-adjoint operator with compact
+resolvent; heat-admissibility is imposed independently. Its spectral counting
+measure
+\[
+  \mu_L=\sum_j m_j\delta_{\nu_j}
+\]
+produces the heat trace and its complex-time deformation as Laplace transforms
+\[
+  Z_L(z)=\int_{[0,\infty)}\e^{-z\lambda}\,\dd\mu_L(\lambda),
+  \qquad \Re z>0.
+\]
+We prove the elementary holomorphy, differentiation, domination, and exact
+imaginary-periodicity criteria for this transform; correct the factorization
+criterion for quantities recoverable through a readout; and distinguish formal,
+analytic, abstract diagonal, elliptic-geometric, equivariant, and physical
+realization levels. Circle and flat-torus Laplacians provide normalized theta
+examples. Two counterexamples show that a compact carrier need not produce
+discrete spectrum and that compact resolvent need not produce a trace-class heat
+semigroup. A rapidly growing abstract multiplicity model then exhibits the gap
+between diagonal operator realizability and finite-dimensional elliptic
+geometry. No new theorem in spectral geometry is claimed; the contribution is a
+rigorous interface and failure-mode taxonomy assembled from standard operator
+and heat-kernel theory.
+\end{abstract}
+
+\noindent\textbf{2020 Mathematics Subject Classification.}
+Primary 47A10, 47A60; Secondary 58J50, 11F27.
+
+\noindent\textbf{Keywords.}
+Compact resolvent; heat-admissible operator; spectral counting measure;
+complex-time heat trace; theta kernel; readout factorization; realization
+hierarchy.
+
+\vspace{0.25cm}
+\noindent\textbf{Status and scope.}
+This is an expository framework article. Except for elementary interface
+propositions proved here for completeness, its analytic inputs are standard
+results in functional analysis, elliptic theory, harmonic analysis, and compact
+group representation theory. It does not propose a new spectral theory, a
+physical compactification model, or an inverse spectral theorem.
+
+\section{Introduction}
+
+The phrase ``compact spectral geometry'' can conceal several logically
+independent assertions. A carrier may be compact while a chosen operator has
+continuous spectrum. A nonnegative self-adjoint operator may have compact
+resolvent while its heat semigroup fails to be trace class for small positive
+times. A formal power series may admit an abstract diagonal operator realization
+while being incompatible with the Weyl and heat asymptotics of every
+Laplace-type operator on a closed finite-dimensional manifold. Finally, a
+representation label attached to an eigenspace is algebraic data, not by itself
+a physical particle sector.
+
+The purpose of this article is to make these boundaries explicit. The basic
+chain is
+\[
+\boxed{
+\text{operator hypotheses}
+\longrightarrow
+\text{spectral measure}
+\longrightarrow
+\text{analytic encoding}
+\longrightarrow
+\text{declared readout}.
+}
+\]
+Each arrow has hypotheses. None may be replaced by an analogy.
+
+\subsection{The layered contract}
+
+We use the following hierarchy.
+
+\begin{enumerate}
+\item \textbf{Formal layer.} An expression
+      \(\sum_i a_iq^{\lambda_i}\) is symbolic data until the index set,
+      levels, coefficients, convergence regime, and branch convention are
+      specified.
+\item \textbf{Abstract operator layer.} A pair \((\Hcal,L)\), with \(L\)
+      nonnegative self-adjoint and compact-resolvent, supplies a discrete
+      spectral counting measure and finite spectral windows.
+\item \textbf{Heat layer.} The extra condition
+      \(\e^{-tL}\in\Scal_1\) for every \(t>0\) supplies a heat trace and a
+      holomorphic complex-time trace.
+\item \textbf{Geometric layer.} A closed manifold, Hermitian bundle, and
+      Laplace-type operator supply compact resolvent, heat-admissibility, Weyl
+      growth, and a local small-time expansion.
+\item \textbf{Equivariant/readout layer.} A commuting compact-group action and a
+      specified map identify symmetry labels and exactly which quantities
+      descend through the map.
+\item \textbf{Physical layer.} An action, units, observables, parameter
+      identification, and empirical tests are additional data. They are outside
+      the present framework.
+\end{enumerate}
+
+The separation between the abstract and geometric layers is essential. Every
+suitable discrete multiplicity list has a diagonal realization, whereas local
+elliptic realizations obey strong asymptotic constraints.
+
+\subsection{Relation to standard frameworks}
+
+Compact-resolvent spectral theory, trace ideals, heat kernels, and elliptic heat
+asymptotics are classical; see
+\cite{ReedSimonIV,Kato,SimonTrace,Davies,MinakPleijel,Gilkey1975,Seeley1967}.
+The circle and torus formulas are direct instances of Fourier analysis and
+Poisson summation \cite{SteinShakarchi,MumfordTheta}. The compact-group statements
+are standard consequences of the spectral theorem and complete reducibility
+\cite{Folland,FultonHarris}.
+
+The datum used below is deliberately weaker than a spectral triple. It contains
+no represented algebra, bounded-commutator condition, real structure, grading,
+or dimension axiom, and therefore does not inherit conclusions of
+noncommutative geometry \cite{Connes1994}. It also contains no spectral-action
+functional \cite{ChamseddineConnes1997}. The present contribution is
+organizational: it gives a minimal typed interface, records the exact descent
+criterion for readouts, and isolates counterexamples that invalidate common
+shortcuts.
+
+\section{Compact resolvent and heat-admissibility}
+
+\subsection{Operator data}
+
+\begin{definition}[Abstract compact-resolvent datum]
+An abstract compact-resolvent spectral datum is a pair \((\Hcal,L)\) such that
+\(\Hcal\) is a complex separable Hilbert space and
+\[
+ L:\Dom(L)\subset\Hcal\longrightarrow\Hcal
+\]
+is densely defined, nonnegative, self-adjoint, and has compact resolvent.
+Because \(L\geq0\), it is enough to require \((L+\Id)^{-1}\) to be compact.
+\end{definition}
+
+This definition does not mention a carrier. A carrier becomes relevant only
+after a concrete realization of \(\Hcal\) and \(L\) has been specified.
+
+\begin{theorem}[Standard compact-resolvent spectral theorem]
+\label{thm:compact-resolvent}
+Let \((\Hcal,L)\) be an abstract compact-resolvent datum.
+\begin{enumerate}
+\item If \(\dim\Hcal<\infty\), then \(L\) has a finite orthonormal eigenbasis.
+\item If \(\dim\Hcal=\infty\), then there is an orthonormal basis
+      \((e_j)_{j\geq0}\) and a sequence
+      \[
+        0\leq\lambda_0\leq\lambda_1\leq\cdots,\qquad
+        \lambda_j\longrightarrow\infty,
+      \]
+      such that \(Le_j=\lambda_je_j\). Eigenvalues are repeated according to
+      finite multiplicity.
+\item For every bounded Borel set \(W\subset\R\), the spectral projection
+      \(\mathbf 1_W(L)\) has finite rank.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The compact self-adjoint operator \(R=(L+\Id)^{-1}\) has an orthonormal
+eigenbasis for its nonzero spectrum together with a basis of \(\ker R\).
+Here \(R\) is injective, hence \(\ker R=\{0\}\), so the nonzero eigenvectors
+are complete. In infinite dimension, the nonzero eigenvalues of \(R\) have
+finite multiplicity and can accumulate only at zero. If \(Re=\rho e\), then
+\(e\in\ran R=\Dom(L)\) and \(Le=(\rho^{-1}-1)e\). This transfers the basis to
+\(L\), gives finite multiplicities, and forces \(\lambda_j\to\infty\).
+The finite-dimensional alternative must be stated separately. In either case,
+a bounded set meets only finitely many eigenvalues counted with multiplicity,
+so its spectral projection has finite rank. See
+\cite[Chs.~VI--VII]{ReedSimonI} or \cite[Ch.~III]{Kato}.
+\end{proof}
+
+\begin{definition}[Spectral window]
+For a bounded Borel set \(W\subset[0,\infty)\), the spectral window is
+\[
+  \Hcal_W:=\ran\mathbf 1_W(L).
+\]
+By Theorem~\ref{thm:compact-resolvent}, \(\Hcal_W\) is finite-dimensional.
+\end{definition}
+
+\subsection{Compact carrier is not an operator hypothesis}
+
+\begin{example}[Compact carrier with continuous spectrum]
+\label{ex:compact-carrier}
+Let \(K=S^1\), \(\Hcal=L^2(S^1)\), and
+\[
+  (Lf)(\theta)=(2+\cos\theta)f(\theta).
+\]
+Then \(K\) is compact and \(L\) is bounded, nonnegative, and self-adjoint, but
+\[
+  \Spec(L)=[1,3],
+\]
+the essential range of \(2+\cos\theta\). Moreover,
+\((L+\Id)^{-1}\) is multiplication by \((3+\cos\theta)^{-1}\), which is not
+compact on \(L^2(S^1)\). Indeed, this multiplier has the bounded inverse given
+by multiplication by \(3+\cos\theta\); if it were compact, the identity on the
+infinite-dimensional space \(L^2(S^1)\) would be compact. Thus compactness of
+the carrier alone gives neither compact resolvent nor discrete spectrum.
+\end{example}
+
+\begin{remark}
+Compactness becomes effective only through an analytic theorem. For a
+Laplace-type operator on a closed manifold, elliptic regularity maps the
+resolvent into a higher Sobolev space and Rellich compactness returns it
+compactly to \(L^2\). The conclusion comes from the operator and its domain,
+not from the topology of the carrier in isolation.
+\end{remark}
+
+\subsection{Heat-admissibility is an independent condition}
+
+\begin{definition}[Heat-admissibility]
+A nonnegative self-adjoint operator \(L\) is heat-admissible if
+\[
+  \e^{-tL}\in\Scal_1(\Hcal)
+  \qquad\text{for every }t>0,
+\]
+where \(\Scal_1\) is the trace-class ideal. Its heat trace is
+\[
+  Z_L(t):=\Tr(\e^{-tL}).
+\]
+\end{definition}
+
+\begin{remark}
+This is a naming convention for the present layer structure, not a new
+summability notion. When \(L=D^2\), the same condition is commonly called
+\(\theta\)-summability in spectral-triple terminology
+\cite{Connes1994,SimonTrace}.
+\end{remark}
+
+\begin{example}[Compact resolvent without heat-admissibility]
+\label{ex:log-spectrum}
+On \(\ell^2(\N)\), define
+\[
+  Le_n=\log(n+1)e_n,\qquad
+  \Dom(L)=
+  \set{x:\sum_{n\geq1}\log^2(n+1)\abs{x_n}^2<\infty}.
+\]
+Then \(L\geq0\) is self-adjoint and
+\((L+\Id)^{-1}\) is diagonal with entries tending to zero, hence compact.
+Self-adjointness follows from the maximal-domain construction for a real
+diagonal operator.
+However,
+\[
+ \Tr(\e^{-tL})=\sum_{n\geq1}(n+1)^{-t},
+\]
+which diverges for \(0<t\leq1\). Compact resolvent therefore does not imply
+heat-admissibility.
+\end{example}
+
+\begin{remark}[Growth criterion]
+If \(\lambda_j\) are repeated with multiplicity, heat-admissibility is exactly
+\[
+  \sum_j\e^{-t\lambda_j}<\infty
+  \quad\text{for every }t>0.
+\]
+It is a quantitative restriction on spectral growth, not merely a discreteness
+condition.
+\end{remark}
+
+\section{Spectral measures and complex-time encodings}
+
+\subsection{Counting measure and heat trace}
+
+Let \(\nu_0<\nu_1<\cdots\) denote the distinct eigenvalues of a
+compact-resolvent operator and let \(m_j\) be their multiplicities. The list is
+finite in finite dimension; otherwise it is an infinite sequence with
+\(\nu_j\to\infty\).
+
+\begin{definition}[Spectral counting measure]
+The spectral counting measure and counting function are
+\[
+  \mu_L:=\sum_jm_j\delta_{\nu_j},
+  \qquad
+  N_L(\Lambda):=\mu_L([0,\Lambda]).
+\]
+\end{definition}
+
+The measure \(\mu_L\) is locally finite. If \(L\) is heat-admissible, then
+\[
+ Z_L(t)=\int_{[0,\infty)}\e^{-t\lambda}\,\dd\mu_L(\lambda)
+       =\sum_jm_j\e^{-t\nu_j}.
+\]
+Thus the heat trace is the Laplace transform of a positive discrete measure.
+This formulation keeps levels and multiplicities distinct and avoids assigning
+spectral meaning to an undeclared coefficient sequence.
+
+\subsection{Complex time}
+
+\begin{definition}[Complex-time spectral trace]
+For a heat-admissible \(L\) and \(z\in\C\) with \(\Re z>0\), define
+\[
+  Z_L(z):=\Tr(\e^{-zL})
+  =\int_{[0,\infty)}\e^{-z\lambda}\,\dd\mu_L(\lambda).
+\]
+Writing \(z=t-\ii\phi\), with \(t>0\) and \(\phi\in\R\), gives
+\[
+  Z_L(t-\ii\phi)
+  =\sum_jm_j\e^{-t\nu_j}\e^{\ii\phi\nu_j}.
+\]
+The phase parameter is initially real, not an element of
+\(\R/2\pi\Z\).
+\end{definition}
+
+\begin{proposition}[Holomorphic trace and derivative bounds]
+\label{prop:holomorphic}
+Let \(L\) be heat-admissible. Then:
+\begin{enumerate}
+\item \(\e^{-zL}\) is trace class for every \(\Re z>0\), and
+      \[
+        \norm{\e^{-zL}}_1=Z_L(\Re z).
+      \]
+\item \(Z_L\) is holomorphic on the right half-plane and, for every
+      \(r\in\N_0\),
+      \[
+        Z_L^{(r)}(z)
+        =(-1)^r\int\lambda^r\e^{-z\lambda}\,\dd\mu_L(\lambda).
+      \]
+\item The domination estimate
+      \[
+        \abs{Z_L(z)}\leq Z_L(\Re z)
+      \]
+      holds.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Functional calculus gives
+\[
+ \e^{-zL}=\e^{-(\Re z)L}\e^{-\ii(\Im z)L}.
+\]
+The second factor is unitary and commutes with the positive trace-class first
+factor, giving the trace norm identity. On every compact subset of
+\(\{\Re z>0\}\), there is \(a>0\) with \(\Re z\geq a\). The defining series is
+dominated by \(\sum_jm_j\e^{-a\nu_j}<\infty\), so it converges locally uniformly.
+For derivatives, use
+\[
+ \lambda^r\e^{-a\lambda}
+ \leq C_{r,a}\e^{-a\lambda/2}
+\]
+and heat-admissibility at \(a/2\). Termwise differentiation is therefore
+valid. The final estimate follows from the triangle inequality.
+\end{proof}
+
+\begin{proposition}[Exact imaginary-periodicity criterion]
+\label{prop:periodicity}
+Let \(L\) be heat-admissible and let \(T>0\). The following are equivalent:
+\begin{enumerate}
+\item \(Z_L(z+\ii T)=Z_L(z)\) for all \(\Re z>0\);
+\item \(T\nu_j\in2\pi\Z\) for every eigenvalue \(\nu_j\).
+\end{enumerate}
+In particular, \(2\pi\)-periodicity in \(\phi\) is automatic only when all
+levels are integers.
+\end{proposition}
+
+\begin{proof}
+The second condition immediately implies the first. Conversely, evaluate the
+assumed identity at real \(z=t>0\):
+\[
+ \sum_jm_j\bigl(\e^{-\ii T\nu_j}-1\bigr)\e^{-t\nu_j}=0.
+\]
+Order the distinct eigenvalues increasingly and set
+\(c_j=m_j(\e^{-\ii T\nu_j}-1)\). For any fixed \(t_0>0\) and \(t\geq t_0\),
+\[
+ \abs{c_j}\e^{-t(\nu_j-\nu_0)}
+ \leq 2\e^{t_0\nu_0}m_j\e^{-t_0\nu_j},
+\]
+and the majorant is summable by heat-admissibility. Multiplying the identity
+by \(\e^{t\nu_0}\) and applying dominated convergence as \(t\to\infty\)
+therefore gives \(c_0=0\). Remove that term and apply the same argument to
+the tail beginning at \(\nu_1\), then iterate. Hence
+\(\e^{-\ii T\nu_j}=1\), equivalently \(T\nu_j\in2\pi\Z\), for every \(j\).
+\end{proof}
+
+\begin{remark}[Safe \(q\)-notation]
+If the levels are nonnegative integers, one may set \(q=\e^{-z}\), \(\abs q<1\),
+and write \(Z_L(z)=\sum_nm_nq^n\). For general real levels, \(q^\lambda\)
+requires a choice of logarithm. The invariant notation is
+\(\e^{-z\lambda}\).
+\end{remark}
+
+\subsection{Mellin transform and the positive spectral zeta function}
+
+\begin{definition}
+Let \(h_L=\dim\ker L\). The positive spectral zeta function is
+\[
+ \zeta_L(s):=\int_{(0,\infty)}\lambda^{-s}\,\dd\mu_L(\lambda)
+            =\sum_{\nu_j>0}m_j\nu_j^{-s}
+\]
+in its half-plane of absolute convergence.
+\end{definition}
+
+\begin{proposition}[Mellin identity with explicit hypothesis]
+\label{prop:mellin}
+Let \(L\) be heat-admissible, let \(s\in\C\), let
+\(\sigma=\Re s>0\), and assume
+\(\sum_{\nu_j>0}m_j\nu_j^{-\sigma}<\infty\). Then
+\[
+  \zeta_L(s)
+  =\frac{1}{\Gamma(s)}
+    \int_0^\infty t^{s-1}\bigl(Z_L(t)-h_L\bigr)\,\dd t.
+\]
+\end{proposition}
+
+\begin{proof}
+For \(\lambda>0\),
+\[
+ \lambda^{-s}=\frac1{\Gamma(s)}
+ \int_0^\infty t^{s-1}\e^{-t\lambda}\,\dd t.
+\]
+Moreover, Tonelli's theorem gives the exact absolute-integrability test
+\[
+ \int_0^\infty
+ \sum_{\nu_j>0}m_jt^{\sigma-1}\e^{-t\nu_j}\,\dd t
+ =
+ \Gamma(\sigma)\sum_{\nu_j>0}m_j\nu_j^{-\sigma}<\infty.
+\]
+Fubini's theorem therefore gives the identity. No analytic continuation is
+asserted.
+\end{proof}
+
+\section{A realization hierarchy}
+
+\subsection{Formal and abstract realizations}
+
+\begin{definition}[Level encoding]
+A level encoding is data \((I,\lambda,a)\), where \(I\) is countable,
+\(\lambda:I\to[0,\infty)\), and \(a:I\to\C\). It is \emph{locally finite} if
+\[
+ \#\set{i\in I:a_i\neq0,\ \lambda_i\leq\Lambda}<\infty
+ \qquad(\Lambda<\infty).
+\]
+On an open set \(D\subset\C\), it defines an analytic encoding if the series
+\[
+ F(z)=\sum_{i\in I}a_i\e^{-z\lambda_i}
+\]
+converges normally on \(D\), meaning that for every compact \(K\subset D\),
+\[
+ \sum_{i\in I}\sup_{z\in K}
+ \abs{a_i\e^{-z\lambda_i}}<\infty.
+\]
+Normal convergence makes \(F\) holomorphic. Under local finiteness, the grouped
+coefficient at a level \(\nu\) is the finite sum
+\[
+ b_\nu:=\sum_{\lambda_i=\nu}a_i.
+\]
+The encoding can be an abstract heat trace only if every \(b_\nu\) is a
+nonnegative integer, the support \(\set{\nu:b_\nu\neq0}\) is locally finite in
+\([0,\infty)\), and
+\(\sum_\nu b_\nu\e^{-t\nu}<\infty\) for every \(t>0\).
+\end{definition}
+
+\begin{proposition}[Canonical diagonal realization]
+\label{prop:diagonal}
+Let
+\[
+ 0\leq\lambda_0<\lambda_1<\cdots,\qquad
+ \lambda_n\to\infty,\qquad m_n\in\N_{>0}.
+\]
+On
+\[
+ \Hcal=\bigoplus_{n\geq0}\C^{m_n}
+\]
+define \(L\) to act by \(\lambda_n\Id\) on the \(n\)-th summand, with domain
+\[
+ \Dom(L)=
+ \set{x=(x_n):\sum_{n\geq0}\lambda_n^2\norm{x_n}^2<\infty}.
+\]
+Then \(L\geq0\) is self-adjoint with compact resolvent.
+It is heat-admissible if and only if
+\[
+ \sum_{n\geq0}m_n\e^{-t\lambda_n}<\infty
+ \quad\text{for every }t>0.
+\]
+The resulting pure-point operator is unique up to unitary equivalence among
+operators with exactly these eigenvalues and multiplicities.
+For a finite level list, the same statement holds on a finite-dimensional
+direct sum, with the condition \(\lambda_n\to\infty\) omitted.
+\end{proposition}
+
+\begin{proof}
+The displayed domain is the maximal domain of this real diagonal operator, so
+\(L\) is self-adjoint and nonnegative.
+The resolvent is block diagonal with block norm
+\((1+\lambda_n)^{-1}\to0\), hence it is the norm limit of finite-rank
+truncations. The trace-class criterion follows by summing the positive
+eigenvalues \(m_n\e^{-t\lambda_n}\) of \(\e^{-tL}\). Unitary equivalence follows
+by choosing unitary identifications between corresponding finite-dimensional
+eigenspaces.
+\end{proof}
+
+\begin{warning}
+Proposition~\ref{prop:diagonal} makes abstract realizability inexpensive. It does not
+produce a carrier, locality, differential expression, principal symbol,
+dimension, metric, boundary condition, or physical interpretation.
+\end{warning}
+
+\subsection{Elliptic geometric realization}
+
+\begin{definition}[Closed Laplace-type realization]
+A closed Laplace-type realization consists of a closed smooth
+\(d\)-dimensional Riemannian manifold \((M,g)\), \(d\geq1\), a finite-rank
+Hermitian bundle
+\(E\to M\), and the nonnegative self-adjoint realization on \(L^2(M,E)\) of a
+second-order differential operator \(L\) whose principal symbol is
+\[
+ \sigma_2(L)(x,\xi)=\abs{\xi}_g^2\Id_{E_x}.
+\]
+\end{definition}
+
+\begin{theorem}[Standard elliptic package]
+\label{thm:elliptic}
+For a closed Laplace-type realization:
+\begin{enumerate}
+\item \(L\) has compact resolvent and is heat-admissible;
+\item its counting function satisfies the Weyl law
+      \[
+        N_L(\Lambda)
+        \sim
+        \frac{\rank(E)\,\omega_d}{(2\pi)^d}\Vol(M)\Lambda^{d/2},
+        \qquad \Lambda\to\infty;
+      \]
+\item its heat trace has a complete small-time expansion
+      \[
+        Z_L(t)
+        \sim
+        (4\pi t)^{-d/2}
+        \sum_{k=0}^\infty A_k(L)t^k,
+        \qquad t\downarrow0,
+      \]
+      with \(A_0(L)=\rank(E)\Vol(M)\) and higher coefficients determined by
+      local geometric and bundle data.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Source]
+Compact resolvent follows from elliptic regularity and Rellich compactness.
+The heat-kernel construction, local expansion, and Weyl law are classical;
+see \cite{MinakPleijel,Gilkey1975,Davies,BGV,Chavel,Seeley1967}. This theorem
+is quoted as a standard package; it is not presented as a new result.
+\end{proof}
+
+\begin{remark}
+The displayed asymptotics are necessary tests for a closed Laplace-type
+realization. They are not sufficient: matching a finite or even an asymptotic
+list of coefficients does not construct a manifold and operator.
+Boundaries, singular spaces, noncompact carriers, nonlocal operators, and
+elliptic operators of order other than two have different theorem packages and
+must be declared separately.
+\end{remark}
+
+\begin{example}[Abstract heat trace excluded by elliptic asymptotics]
+\label{ex:fast-multiplicity}
+Let \(\lambda_n=n\) and \(m_n=\lceil\e^{\sqrt n}\rceil\) for \(n\geq1\).
+Proposition~\ref{prop:diagonal} gives a compact-resolvent operator. It is
+heat-admissible because
+\(\sum_n\e^{\sqrt n-tn}<\infty\) for every \(t>0\).
+For \(0<t\leq1/4\), choose
+\(n_t=\lfloor(4t^2)^{-1}\rfloor\). Then, for a constant \(c>0\),
+\[
+ Z_L(t)\geq m_{n_t}\e^{-tn_t}\geq \e^{c/t}
+\]
+once \(t\) is sufficiently small. Hence \(Z_L(t)\) grows faster than every
+power of \(t^{-1}\). It cannot be the heat trace of a Laplace-type operator on
+any closed finite-dimensional manifold, because that would contradict
+Theorem~\ref{thm:elliptic}.
+\end{example}
+
+\begin{proof}
+For fixed \(t>0\), the inequality \(\sqrt n\leq tn/2\) holds once
+\(n\geq4t^{-2}\); hence the tail of
+\(\sum_n\e^{\sqrt n-tn}\) is bounded by a geometric series
+\(\sum_n\e^{-tn/2}\). This proves heat-admissibility.
+
+For \(t\leq1/4\), the number \(x=(4t^2)^{-1}\) is at least \(4\), so
+\(n_t\geq x/2=(8t^2)^{-1}\), while \(tn_t\leq1/(4t)\). Therefore
+\[
+ \sqrt{n_t}-tn_t
+ \geq
+ \left(\frac1{2\sqrt2}-\frac14\right)\frac1t.
+\]
+The coefficient in parentheses is positive, which proves the bound.
+\end{proof}
+
+\subsection{Layer table}
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.19\textwidth}
+>{\raggedright\arraybackslash}p{0.29\textwidth}
+>{\raggedright\arraybackslash}X@{}}
+\toprule
+Layer & Required data & What is justified \\
+\midrule
+Formal
+& \(I,\lambda,a\), syntax
+& A symbolic level expression only. \\
+Convergent analytic
+& Normal convergence on an open set
+& A holomorphic function on that set. \\
+Abstract spectral
+& Integer multiplicities and a self-adjoint realization
+& A pure-point spectrum; compact resolvent if levels escape to infinity. \\
+Heat
+& \(\e^{-tL}\in\Scal_1\) for all \(t>0\)
+& Trace, spectral Laplace transform, complex-time encoding. \\
+Elliptic geometric
+& \(M,E,L\), domain and ellipticity
+& Weyl law, local heat expansion, geometric coefficients. \\
+Equivariant
+& Strongly continuous unitary action commuting with \(L\)
+& Representation structure on finite eigenspaces. \\
+Physical
+& Dynamics, units, observables, calibration and tests
+& Model-dependent physical statements only. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Circle and flat-torus models}
+
+We use the Fourier-transform convention
+\[
+ \widehat f(\xi)=\int_{\R^d}f(x)\e^{-2\pi\ii x\cdot\xi}\,\dd x,
+\]
+for which the lattice Poisson formula is
+\(\sum_{n\in\Z^d}f(n)=\sum_{k\in\Z^d}\widehat f(k)\) on the Schwartz class.
+
+\subsection{Circle}
+
+Let \(S^1=\R/2\pi\Z\) and equip it with normalized Haar measure
+\(\dd\theta/(2\pi)\). For \(R>0\), define
+\[
+  L_R=-R^{-2}\frac{\dd^2}{\dd\theta^2},
+  \qquad \Dom(L_R)=H^2_{\mathrm{per}}(S^1).
+\]
+
+\begin{proposition}[Circle spectrum and theta trace]
+The modes \(e_n(\theta)=\e^{\ii n\theta}\), \(n\in\Z\), form an orthonormal
+eigenbasis with
+\[
+  L_Re_n=\frac{n^2}{R^2}e_n.
+\]
+Consequently,
+\[
+  Z_{L_R}(t)=\sum_{n\in\Z}\e^{-tn^2/R^2}
+  =
+  R\sqrt{\frac{\pi}{t}}
+  \sum_{k\in\Z}\e^{-\pi^2R^2k^2/t}.
+\]
+\end{proposition}
+
+\begin{proof}
+The spectral statement is Fourier theory on \(S^1\). Apply Poisson summation to
+\(x\mapsto\e^{-tx^2/R^2}\) to obtain the second expression.
+\end{proof}
+
+The equality relates short and long heat scales, but it is a precise identity for
+this quadratic spectrum, not a universal duality principle.
+
+\subsection{Flat tori}
+
+Let \(\T^d=(\R/2\pi\Z)^d\) with normalized Haar measure, let \(A\) be a real
+symmetric positive-definite \(d\times d\) matrix, and define
+\[
+ L_A=-\sum_{a,b=1}^d A_{ab}\partial_a\partial_b
+ \quad\text{on}\quad H^2(\T^d).
+\]
+
+\begin{proposition}[Flat-torus spectrum and Poisson transform]
+\label{prop:torus}
+The normalized Fourier modes
+\[
+ e_n(\theta)=\e^{\ii n\cdot\theta},\qquad n\in\Z^d,
+\]
+satisfy
+\[
+ L_Ae_n=(n^{\mathsf T}An)e_n.
+\]
+The heat trace is
+\[
+ Z_A(t)=\sum_{n\in\Z^d}\e^{-t n^{\mathsf T}An},
+\]
+and Poisson summation gives
+\[
+ Z_A(t)=
+ \frac{\pi^{d/2}}{t^{d/2}\sqrt{\det A}}
+ \sum_{k\in\Z^d}
+ \exp\left(-\frac{\pi^2}{t}k^{\mathsf T}A^{-1}k\right).
+\]
+\end{proposition}
+
+\begin{proof}
+Differentiating \(e_n\) gives the eigenvalue \(n^{\mathsf T}An\).
+Positive definiteness yields \(n^{\mathsf T}An\geq c\abs n^2\), so the heat
+trace converges. The Fourier transform of
+\(x\mapsto\e^{-t x^{\mathsf T}Ax}\) is
+\[
+ \xi\longmapsto
+ \frac{\pi^{d/2}}{t^{d/2}\sqrt{\det A}}
+ \exp\left(-\frac{\pi^2}{t}\xi^{\mathsf T}A^{-1}\xi\right),
+\]
+and the lattice Poisson formula proves the identity.
+\end{proof}
+
+\begin{remark}[Degeneracy]
+The multiplicity of \(\lambda\) is the finite representation number
+\[
+ r_A(\lambda)=
+ \#\set{n\in\Z^d:n^{\mathsf T}An=\lambda}.
+\]
+A statement about one Fourier label \(n\) must not be confused with a statement
+about the full eigenspace when several lattice vectors have the same quadratic
+value.
+\end{remark}
+
+\subsection{Tensor sums}
+
+\begin{proposition}[Product heat trace]
+Let \(L_i\) be a nonnegative heat-admissible self-adjoint operator on
+\(\Hcal_i\), \(i=1,2\). On \(\Hcal_1\widehat\otimes\Hcal_2\), let \(L\) be the
+nonnegative self-adjoint operator associated with the closed quadratic form
+\[
+ \Dom(q)=
+ \Dom(L_1^{1/2}\otimes\Id)\cap
+ \Dom(\Id\otimes L_2^{1/2}),
+\qquad
+ q[u]=
+ \norm{(L_1^{1/2}\otimes\Id)u}^2+
+ \norm{(\Id\otimes L_2^{1/2})u}^2
+\]
+for \(u\in\Dom(q)\). Equivalently, \(L\) is the self-adjoint tensor sum
+\(L_1\otimes\Id+\Id\otimes L_2\).
+Then \(L\) is heat-admissible and, for \(\Re z>0\),
+\[
+ \e^{-zL}=\e^{-zL_1}\otimes\e^{-zL_2},
+ \qquad
+ Z_L(z)=Z_{L_1}(z)Z_{L_2}(z).
+\]
+\end{proposition}
+
+\begin{proof}
+The spectral measures of the two tensor factors commute, and their joint
+functional calculus represents \(L\) by the function
+\((\lambda_1,\lambda_2)\mapsto\lambda_1+\lambda_2\). This gives the
+exponential identity. For real \(z=t>0\), the tensor product of the two
+positive trace-class heat operators is trace class, proving
+heat-admissibility. The same trace-ideal fact for complex \(z\), together with
+\(\Tr(A\otimes B)=\Tr(A)\Tr(B)\), gives the trace formula.
+\end{proof}
+
+\section{Readouts and equivariant labels}
+
+\subsection{Exact factorization through a readout}
+
+\begin{definition}[Readout and recoverability]
+Let \(\Pi:X\to Y\) be a specified map and \(Q:X\to Z\) a quantity. We say that
+\(Q\) is recoverable from \(\Pi\) if it factors through the actual image
+\(\Pi(X)\).
+\end{definition}
+
+\begin{proposition}[Correct fiber criterion]
+\label{prop:fiber}
+There exists a unique map
+\[
+ \widehat Q:\Pi(X)\longrightarrow Z
+\quad\text{such that}\quad
+ Q=\widehat Q\circ\Pi
+\]
+if and only if
+\[
+ \Pi(x)=\Pi(x')\Longrightarrow Q(x)=Q(x')
+ \qquad(x,x'\in X).
+\]
+If \(\Pi\) is surjective, then \(\Pi(X)=Y\). Without surjectivity, the criterion
+does not determine values of an extension \(Y\to Z\) outside \(\Pi(X)\).
+\end{proposition}
+
+\begin{proof}
+Factorization implies fiber constancy. Conversely, define
+\(\widehat Q(\Pi(x))=Q(x)\). Fiber constancy makes the definition independent
+of the representative and uniqueness holds on \(\Pi(X)\).
+\end{proof}
+
+\begin{corollary}[Continuous descent]
+Let \(X,Y,Z\) be topological spaces and let \(\Pi:X\to Y\) be a surjective
+quotient map. A continuous map \(Q:X\to Z\) admits a unique continuous
+factorization \(Q=\widehat Q\circ\Pi\) if and only if it is constant on the
+fibers of \(\Pi\).
+\end{corollary}
+
+\begin{proof}
+Apply Proposition~\ref{prop:fiber}. The defining property of the quotient topology says
+that \(\widehat Q\) is continuous exactly when
+\(\widehat Q\circ\Pi=Q\) is continuous.
+\end{proof}
+
+\begin{remark}
+If smooth, measurable, Lipschitz, or other regular descent is required, the
+corresponding category needs its own hypotheses. Set-theoretic fiber constancy
+alone proves only set-theoretic factorization.
+\end{remark}
+
+\subsection{Compact-group symmetry}
+
+\begin{definition}[Equivariant spectral datum]
+Let \(G\) be a compact group with a strongly continuous unitary representation
+\(U:G\to\mathcal U(\Hcal)\). The datum \((\Hcal,L,U)\) is equivariant if
+\[
+ U_g\Dom(L)=\Dom(L),
+ \qquad
+ LU_gx=U_gLx
+ \quad(x\in\Dom(L)).
+\]
+\end{definition}
+
+\begin{proposition}[Static symmetry labels]
+\label{prop:static-symmetry}
+If \(L\) has compact resolvent and \((\Hcal,L,U)\) is equivariant, then every
+spectral projection \(\mathbf1_W(L)\) commutes with \(U_g\). In particular,
+each finite-dimensional eigenspace
+\[
+ E_\lambda=\ker(L-\lambda\Id)
+\]
+is a unitary \(G\)-representation and decomposes into irreducibles.
+\end{proposition}
+
+\begin{proof}
+The domain invariance and equality \(LU_g=U_gL\) imply
+\[
+ U_g(L+\Id)^{-1}=(L+\Id)^{-1}U_g.
+\]
+The bounded functional calculus therefore gives commutation with every bounded
+Borel function of \(L\), hence with each spectral projection. The eigenspaces
+are finite-dimensional by compact resolvent. Their restricted \(G\)-actions
+are unitary, so invariant subspaces have invariant orthogonal complements;
+iteration gives a finite direct sum of irreducibles.
+\end{proof}
+
+\begin{warning}
+Proposition~\ref{prop:static-symmetry} is a static statement. It does not assert that the
+multiplicity of a fixed eigenvalue remains constant under perturbation.
+Eigenvalues may split, merge, or cross. Quantitative stability of an isolated
+cluster requires a declared spectral gap and control of the corresponding Riesz
+projection; that problem is not treated here.
+\end{warning}
+
+\subsection{A corrected toric internal model}
+
+Let \(V\) be a finite-dimensional unitary \(G\)-representation and consider
+\[
+ \Hcal=L^2(\T^d)\otimes V,
+ \qquad
+ L=L_A\otimes\Id_V.
+\]
+Here \(G\) acts trivially on \(L^2(\T^d)\) and through the given
+representation on \(V\).
+
+\begin{proposition}[Full eigenspace at a toric level]
+\label{prop:toric-internal}
+For every eigenvalue \(\lambda\) of \(L_A\),
+\[
+ E_\lambda(L)
+ =
+ \bigoplus_{\substack{n\in\Z^d\\n^{\mathsf T}An=\lambda}}
+ \C e_n\otimes V.
+\]
+Consequently, as a \(G\)-representation,
+\[
+ E_\lambda(L)\cong V^{\oplus r_A(\lambda)}.
+\]
+If \(H\subset G\) is closed and
+\[
+ V\!\downarrow_H\cong\bigoplus_\alpha b_\alpha W_\alpha,
+\]
+then
+\[
+ E_\lambda(L)\!\downarrow_H
+ \cong
+ \bigoplus_\alpha
+ \bigl(r_A(\lambda)b_\alpha\bigr)W_\alpha.
+\]
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:torus} identifies all Fourier modes with eigenvalue \(\lambda\).
+Tensoring each Fourier line with \(V\) gives the full eigenspace. The group acts
+trivially on the Fourier multiplicity space and through the given
+representation on \(V\), so multiplicities multiply by \(r_A(\lambda)\).
+\end{proof}
+
+\begin{remark}
+This proposition supplies representation-theoretic labels attached to a
+spectral level. It does not identify those labels with physical fields,
+charges, masses, or interactions.
+\end{remark}
+
+\section{Claim boundary and admissibility test}
+
+The framework is intentionally narrow. The following table records the main
+logical boundaries.
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.37\textwidth}
+>{\raggedright\arraybackslash}X@{}}
+\toprule
+Invalid shortcut & Missing hypothesis or conclusion \\
+\midrule
+Compact carrier \(\Rightarrow\) discrete spectrum
+& False by Example~\ref{ex:compact-carrier}; an operator theorem such as ellipticity
+  and compact Sobolev embedding is required. \\
+Compact resolvent \(\Rightarrow\) heat trace for every \(t>0\)
+& False by Example~\ref{ex:log-spectrum}; trace-class summability is separate. \\
+Formal \(q\)-series \(\Rightarrow\) spectrum
+& Levels, integer multiplicities, convergence, and an operator realization are
+  missing. \\
+Abstract diagonal realization \(\Rightarrow\) compact geometry
+& False in general; Weyl and heat asymptotics impose geometric obstructions,
+  as in Example~\ref{ex:fast-multiplicity}. \\
+\(\phi\in\R/2\pi\Z\) for arbitrary real levels
+& False unless the spectrum satisfies the arithmetic condition in
+  Proposition~\ref{prop:periodicity}. \\
+Fiber constancy \(\Rightarrow\) a map on all of \(Y\)
+& It canonically produces a map only on \(\Pi(X)\); surjectivity or a separate
+  extension is needed. \\
+Equivariant eigenspace \(\Rightarrow\) perturbative label stability
+& False without an isolated cluster, a gap, and an equivariant perturbation
+  theorem. \\
+Representation branch \(\Rightarrow\) physical sector
+& Dynamics, units, observables, and empirical identification remain absent. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Audit protocol}
+
+For use as a diagnostic rather than as a theorem, a proposed spectral encoding
+should state, in order:
+\begin{enumerate}
+\item the index set and level function;
+\item the meaning and sign/integrality of the coefficients;
+\item the convergence domain;
+\item the operator and its self-adjoint domain, if an operator claim is made;
+\item compact-resolvent and heat-admissibility hypotheses separately;
+\item the carrier, bundle, locality, and ellipticity data, if a geometric claim
+      is made;
+\item the group action and commutation relations, if symmetry labels are used;
+\item the readout map and the category in which descent is asserted;
+\item any additional bridge data needed for a physical interpretation.
+\end{enumerate}
+
+Items 1--3 define the analytic expression. Items 4--5 justify abstract spectral
+and heat language. Item 6 is needed to pass from an abstract operator to
+geometry. Items 7--8 type symmetry and recoverability statements. Item 9 is
+logically external to the mathematical spectral package.
+
+\section{Conclusion}
+
+The correct foundational implication is
+\[
+\boxed{
+L=L^*\geq0,\quad (L+\Id)^{-1}\text{ compact}
+\quad\Longrightarrow\quad
+\text{discrete finite-multiplicity spectrum},
+}
+\]
+with
+\[
+\boxed{
+\e^{-tL}\in\Scal_1\ \text{for every }t>0
+\quad\Longrightarrow\quad
+Z_L(z)=\int\e^{-z\lambda}\,\dd\mu_L(\lambda),\quad\Re z>0.
+}
+\]
+Compactness of a carrier is not a substitute for the first hypothesis, and
+compact resolvent is not a substitute for the second. Closed Laplace-type
+geometry supplies both and adds Weyl and local heat asymptotics. Abstract
+diagonal realizability supplies neither locality nor geometry.
+
+The complex-time formulation removes the ambiguous use of a periodic phase:
+periodicity is a theorem only when the spectrum lies in the corresponding
+arithmetic lattice. The corrected readout criterion likewise produces a
+canonical factor only on the actual image unless surjectivity is imposed.
+Finally, equivariance gives representation structure on eigenspaces but not
+perturbative stability or physical interpretation.
+
+These distinctions make the framework suitable as an expository companion to
+more focused research. Natural research questions -- geometric realizability
+obstructions, quantitative equivariant cluster stability, and branch-resolved
+heat-trace inversion -- require separate theorems and are intentionally not
+claimed here.
+
+\begin{thebibliography}{99}
+
+\bibitem{BGV}
+N.~Berline, E.~Getzler, and M.~Vergne,
+\emph{Heat Kernels and Dirac Operators},
+Grundlehren der mathematischen Wissenschaften 298,
+Springer-Verlag, Berlin, 1992.
+\href{https://doi.org/10.1007/978-3-642-58088-8}
+{doi:10.1007/978-3-642-58088-8}.
+
+\bibitem{ChamseddineConnes1997}
+A.~H.~Chamseddine and A.~Connes,
+The spectral action principle,
+\emph{Communications in Mathematical Physics} \textbf{186} (1997), 731--750.
+\href{https://doi.org/10.1007/s002200050126}{doi:10.1007/s002200050126}.
+
+\bibitem{Chavel}
+I.~Chavel,
+\emph{Eigenvalues in Riemannian Geometry},
+Pure and Applied Mathematics 115,
+Academic Press, Orlando, 1984.
+
+\bibitem{Connes1994}
+A.~Connes,
+\emph{Noncommutative Geometry},
+Academic Press, San Diego, 1994.
+
+\bibitem{Davies}
+E.~B.~Davies,
+\emph{Heat Kernels and Spectral Theory},
+Cambridge Tracts in Mathematics 92,
+Cambridge University Press, Cambridge, 1989.
+\href{https://doi.org/10.1017/CBO9780511566158}{doi:10.1017/CBO9780511566158}.
+
+\bibitem{Folland}
+G.~B.~Folland,
+\emph{A Course in Abstract Harmonic Analysis},
+2nd ed., CRC Press, Boca Raton, 2016.
+\href{https://doi.org/10.1201/b19172}{doi:10.1201/b19172}.
+
+\bibitem{FultonHarris}
+W.~Fulton and J.~Harris,
+\emph{Representation Theory: A First Course},
+Graduate Texts in Mathematics 129, Springer, New York, 1991.
+\href{https://doi.org/10.1007/978-1-4612-0979-9}
+{doi:10.1007/978-1-4612-0979-9}.
+
+\bibitem{Gilkey1975}
+P.~B.~Gilkey,
+The spectral geometry of a Riemannian manifold,
+\emph{Journal of Differential Geometry} \textbf{10} (1975), 601--618.
+\href{https://doi.org/10.4310/jdg/1214433164}{doi:10.4310/jdg/1214433164}.
+
+\bibitem{Kato}
+T.~Kato,
+\emph{Perturbation Theory for Linear Operators},
+2nd ed., Springer-Verlag, Berlin, 1976; reprinted in Classics in Mathematics,
+Springer, 1995.
+\href{https://doi.org/10.1007/978-3-642-66282-9}
+{doi:10.1007/978-3-642-66282-9}.
+
+\bibitem{MinakPleijel}
+S.~Minakshisundaram and {\AA}.~Pleijel,
+Some properties of the eigenfunctions of the Laplace-operator on Riemannian
+manifolds,
+\emph{Canadian Journal of Mathematics} \textbf{1} (1949), 242--256.
+\href{https://doi.org/10.4153/CJM-1949-021-5}{doi:10.4153/CJM-1949-021-5}.
+
+\bibitem{MumfordTheta}
+D.~Mumford,
+\emph{Tata Lectures on Theta I},
+Progress in Mathematics 28, Birkh\"auser, Boston, 1983.
+
+\bibitem{ReedSimonI}
+M.~Reed and B.~Simon,
+\emph{Methods of Modern Mathematical Physics I: Functional Analysis},
+rev. ed., Academic Press, San Diego, 1980.
+
+\bibitem{ReedSimonIV}
+M.~Reed and B.~Simon,
+\emph{Methods of Modern Mathematical Physics IV: Analysis of Operators},
+Academic Press, New York, 1978.
+
+\bibitem{Seeley1967}
+R.~T.~Seeley,
+Complex powers of an elliptic operator,
+in \emph{Singular Integrals}, Proceedings of Symposia in Pure Mathematics 10,
+American Mathematical Society, Providence, 1967, pp.~288--307,
+MR~0237943.
+
+\bibitem{SimonTrace}
+B.~Simon,
+\emph{Trace Ideals and Their Applications},
+2nd ed., Mathematical Surveys and Monographs 120,
+American Mathematical Society, Providence, 2005.
+\href{https://doi.org/10.1090/surv/120}{doi:10.1090/surv/120}.
+
+\bibitem{SteinShakarchi}
+E.~M.~Stein and R.~Shakarchi,
+\emph{Fourier Analysis: An Introduction},
+Princeton Lectures in Analysis I,
+Princeton University Press, Princeton, 2003.
+
+\end{thebibliography}
+
+\end{document}
