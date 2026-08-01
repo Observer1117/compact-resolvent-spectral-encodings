@@ -1,6 +1,6 @@
 # Public framework preprint v0.2.0
 
-First public release candidate of *A Layered Framework for Compact-Resolvent Spectral Encodings*.
+First public release of *A Layered Framework for Compact-Resolvent Spectral Encodings*.
 
 Author: Stassis Stashkevichyus  
 ORCID: https://orcid.org/0009-0000-2294-705X  
@@ -33,4 +33,8 @@ Verify release assets against `checksums/SHA256SUMS`.
 
 ## DOI
 
-The DOI field remains pending until the immutable public OSF Registration is created. Once assigned, it will become the primary citation identifier for this version.
+The immutable public OSF Registration is the primary citation record for this version:
+
+- DOI: https://doi.org/10.17605/OSF.IO/RWPGA
+- OSF Registration: https://osf.io/rwpga/
+- Associated OSF Project: https://osf.io/a9fws/

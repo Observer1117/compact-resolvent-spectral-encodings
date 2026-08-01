@@ -48,8 +48,10 @@ Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 - Author website: https://theobserverofmultiverses.info
 - GitHub repository: https://github.com/Observer1117/compact-resolvent-spectral-encodings
-- Public OSF Registration DOI: pending
+- Public OSF Project: https://osf.io/a9fws/
+- Immutable OSF Registration: https://osf.io/rwpga/
+- Public OSF Registration DOI: https://doi.org/10.17605/OSF.IO/RWPGA
 
 ## Registration contents
 
-The immutable registration should include the manuscript PDF, source archive, referee audit, citation metadata, release notes, and SHA-256 checksum manifest corresponding exactly to tag `v0.2.0`.
+The immutable registration includes the manuscript PDF, source archive, referee audit, citation metadata, release notes, and SHA-256 checksum manifest corresponding exactly to tag `v0.2.0` at commit `91aeed526a126ede56397fe42e7393bfbc30d3f6`.

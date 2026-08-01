@@ -4,7 +4,12 @@ All notable changes to the public manuscript package are recorded here.
 
 ## [Unreleased]
 
-- Add the DOI of the public OSF Registration after it is assigned.
+### Archival metadata - 2026-08-01
+
+- Added the immutable OSF Registration DOI `10.17605/OSF.IO/RWPGA`.
+- Added links to the public OSF Project and Registration.
+- Updated CFF, BibTeX, README, release notes, and structured publication metadata.
+- Left the frozen v0.2.0 manuscript PDF and mathematical content unchanged.
 
 ### Metadata confirmation - 2026-08-01
 

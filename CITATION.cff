@@ -4,6 +4,7 @@ type: dataset
 title: "A Layered Framework for Compact-Resolvent Spectral Encodings"
 version: "0.2"
 date-released: "2026-07-27"
+doi: "10.17605/OSF.IO/RWPGA"
 url: "https://github.com/Observer1117/compact-resolvent-spectral-encodings"
 repository-code: "https://github.com/Observer1117/compact-resolvent-spectral-encodings"
 authors:
@@ -55,5 +56,6 @@ preferred-citation:
   month: 7
   version: "0.2"
   status: preprint
-  url: "https://github.com/Observer1117/compact-resolvent-spectral-encodings"
+  doi: "10.17605/OSF.IO/RWPGA"
+  url: "https://doi.org/10.17605/OSF.IO/RWPGA"
   notes: "Expository framework preprint; not peer reviewed."

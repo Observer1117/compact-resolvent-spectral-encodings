@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/badge/version-v0.2.0-blue)](#versioning)
 [![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-green)](LICENSE)
 [![Status: expository preprint](https://img.shields.io/badge/status-expository%20preprint-orange)](#scientific-status)
+[![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FRWPGA-blue)](https://doi.org/10.17605/OSF.IO/RWPGA)
 
 This repository contains the manuscript, source, metadata, and referee-hardening audit for an expository operator-theoretic framework separating several notions that are often conflated in spectral discussions:
 
@@ -16,6 +17,8 @@ This repository contains the manuscript, source, metadata, and referee-hardening
 Author: Stassis Stashkevichyus, Independent Researcher. ORCID: [0009-0000-2294-705X](https://orcid.org/0009-0000-2294-705X). Contact: [theobserver.of.multiverses@proton.me](mailto:theobserver.of.multiverses@proton.me).
 
 Canonical repository: [Observer1117/compact-resolvent-spectral-encodings](https://github.com/Observer1117/compact-resolvent-spectral-encodings).
+
+Immutable archival record: [OSF Registration](https://osf.io/rwpga/) ([DOI 10.17605/OSF.IO/RWPGA](https://doi.org/10.17605/OSF.IO/RWPGA)). The associated editable project is available at [OSF Project a9fws](https://osf.io/a9fws/).
 
 ## Scientific status
 
@@ -65,11 +68,11 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 
 ## Citation
 
-Until an OSF Registration DOI is assigned, cite the versioned manuscript:
+Use the immutable OSF Registration as the primary citation record for Version 0.2:
 
-> Stashkevichyus, Stassis. (2026). *A Layered Framework for Compact-Resolvent Spectral Encodings* (Version 0.2). Expository framework preprint.
+> Stashkevichyus, Stassis. (2026). *A Layered Framework for Compact-Resolvent Spectral Encodings* (Version 0.2). OSF. [https://doi.org/10.17605/OSF.IO/RWPGA](https://doi.org/10.17605/OSF.IO/RWPGA)
 
-Machine-readable citation metadata are available in [`CITATION.cff`](CITATION.cff) and [`metadata/citation.bib`](metadata/citation.bib). After DOI assignment, the DOI must be added to both files without changing the scientific content of v0.2.
+Machine-readable citation metadata are available in [`CITATION.cff`](CITATION.cff) and [`metadata/citation.bib`](metadata/citation.bib). The DOI was added as a metadata-only update; the mathematical content and frozen PDF of v0.2.0 are unchanged.
 
 ## Reporting errors
 

@@ -9,8 +9,8 @@ work:
   peer_reviewed: false
   language: "en"
   license: "CC-BY-4.0"
-  doi: null
-  publication_url: null
+  doi: "10.17605/OSF.IO/RWPGA"
+  publication_url: "https://doi.org/10.17605/OSF.IO/RWPGA"
 author:
   given_name: "Stassis"
   family_name: "Stashkevichyus"
@@ -52,7 +52,8 @@ repository:
   default_branch: "main"
   release_title: "Public framework preprint v0.2.0"
 archive:
-  osf_project_url: null
-  osf_registration_url: null
+  osf_project_url: "https://osf.io/a9fws/"
+  osf_registration_url: "https://osf.io/rwpga/"
+  registration_doi: "10.17605/OSF.IO/RWPGA"
   registration_type: "Open-Ended Registration"
   public_immediately: true
