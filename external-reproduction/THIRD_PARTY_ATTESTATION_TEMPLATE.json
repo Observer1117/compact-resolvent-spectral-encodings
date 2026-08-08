@@ -1,0 +1,33 @@
+{
+  "bundle_sha256": "",
+  "date_utc": "",
+  "environment": {
+    "arch": "",
+    "compiler": "",
+    "container_image_digest_optional": "",
+    "os": "",
+    "python": ""
+  },
+  "exceptions_or_failures": "",
+  "independence_statement": "I executed the released procedure without author assistance and without access to withheld blind truth before finalizing these results.",
+  "reproducer": {
+    "affiliation": "",
+    "contact_optional": "",
+    "name": "",
+    "orcid_optional": ""
+  },
+  "results": {
+    "ampyl_benchmark_max_abs_difference": null,
+    "cpon_digest": "",
+    "raw_max_difference": null,
+    "tests_passed": null,
+    "tests_total": null
+  },
+  "schema": "E11-third-party-attestation-v1",
+  "signature": {
+    "algorithm": "Ed25519",
+    "public_key_pem_or_fingerprint": "",
+    "signature_base64": ""
+  },
+  "workflow_or_manual": ""
+}
