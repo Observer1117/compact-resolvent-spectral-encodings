@@ -1,0 +1,50 @@
+name: Metadata successor contract
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify frozen-source metadata transformation
+        run: python3 scripts/build_metadata_revision.py --check
+
+      - name: Verify frozen mathematical artifacts are untouched
+        shell: bash
+        run: |
+          test "$(git rev-parse v0.2.0)" = "91aeed526a126ede56397fe42e7393bfbc30d3f6"
+          git diff --exit-code v0.2.0 -- source/main.tex paper/compact_resolvent_spectral_encodings_v0_2.pdf
+
+      - name: Verify citation layering and typed dates
+        shell: python
+        run: |
+          from pathlib import Path
+
+          cff = Path("CITATION.cff").read_text(encoding="utf-8")
+          assert 'version: "0.2.1"' in cff
+          assert 'date-released: "2026-08-11"' in cff
+          assert 'version: "0.2"' in cff
+          assert 'doi: "10.17605/OSF.IO/RWPGA"' in cff
+          top = cff.split("preferred-citation:", 1)[0]
+          assert '\ndoi:' not in top
+
+          ledger = Path("metadata/date_ledger_v0.2.1.yaml").read_text(encoding="utf-8")
+          assert '2026-08-01T05:55:04Z' in ledger
+          assert 'use_as_public_release_date: false' in ledger
+
+          metadata = Path("metadata/publication_metadata.yaml").read_text(encoding="utf-8")
+          assert 'metadata_revision: "0.2.1"' in metadata
+          assert 'github_release_published_at: "2026-08-01T05:55:04Z"' in metadata
+          assert 'osf_registration_exact_timestamp: null' in metadata
+
+          print("Citation/date layering verified.")
