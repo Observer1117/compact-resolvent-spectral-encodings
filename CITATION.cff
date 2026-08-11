@@ -1,10 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite the versioned manuscript in preferred-citation."
+message: "If you use this repository, please cite the frozen Version 0.2 manuscript in preferred-citation."
 type: dataset
 title: "A Layered Framework for Compact-Resolvent Spectral Encodings"
-version: "0.2"
-date-released: "2026-07-27"
-doi: "10.17605/OSF.IO/RWPGA"
+version: "0.2.1"
+date-released: "2026-08-11"
 url: "https://github.com/Observer1117/compact-resolvent-spectral-encodings"
 repository-code: "https://github.com/Observer1117/compact-resolvent-spectral-encodings"
 authors:
@@ -53,9 +52,9 @@ preferred-citation:
       email: "theobserver.of.multiverses@proton.me"
       affiliation: "Independent Researcher"
   year: 2026
-  month: 7
+  month: 8
   version: "0.2"
   status: preprint
   doi: "10.17605/OSF.IO/RWPGA"
   url: "https://doi.org/10.17605/OSF.IO/RWPGA"
-  notes: "Expository framework preprint; not peer reviewed."
+  notes: "Frozen v0.2.0 archival manuscript; GitHub Release published 2026-08-01; expository framework preprint; not peer reviewed."
