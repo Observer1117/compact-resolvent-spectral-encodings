@@ -1,0 +1,45 @@
+schema_version: 1
+work: "A Layered Framework for Compact-Resolvent Spectral Encodings"
+
+canonical_dates:
+  historical_version_date:
+    value: "2026-07-27"
+    meaning: "Date attached to the v0.2 mathematical-hardening/version entry in CHANGELOG."
+    use_as_public_release_date: false
+
+  manuscript_revision_date:
+    value: "2026-08-01"
+    meaning: "Revision date printed on the frozen v0.2.0 manuscript title page."
+
+  github_release_published_at:
+    value: "2026-08-01T05:55:04Z"
+    meaning: "GitHub Release API published_at for tag v0.2.0."
+    evidence: "GitHub release id 363442777"
+
+  archival_metadata_added_date:
+    value: "2026-08-01"
+    meaning: "Repository date on which the immutable OSF Registration DOI and archival links were propagated."
+    evidence_commit: "8967d2209b4ba0c4e7ca4b4cbdb0b41917d8174b"
+
+  metadata_revision_date:
+    value: "2026-08-11"
+    meaning: "Repository metadata-only successor v0.2.1."
+
+osf_registration:
+  url: "https://osf.io/rwpga/"
+  doi: "10.17605/OSF.IO/RWPGA"
+  exact_subday_timestamp: null
+  policy: "Do not infer an exact OSF submission/approval timestamp from GitHub history."
+
+frozen_release:
+  tag: "v0.2.0"
+  tag_commit: "91aeed526a126ede56397fe42e7393bfbc30d3f6"
+  release_asset: "compact-resolvent-spectral-encodings-v0.2.0-publication-ready.zip"
+  release_asset_sha256: "3e1a2fbf85199db46df781b3ed8f897ae974442584cb0eaa9a301d2c7f1e0bd0"
+  pdf_sha256: "2adc288fc3dc596e566bb786de8162411e69416669a90a7dfe35486aa8723c09"
+  source_sha256: "5babef3ab8c8ed04b243e4d818809751a7bfe4f20d000f29e88dfbc8db752d5f"
+
+interpretation_rule: >-
+  Dates are event-typed and must never be collapsed into one generic publication
+  date. The public GitHub Release date is 2026-08-01; 2026-07-27 is retained as
+  historical version provenance only.

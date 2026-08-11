@@ -1,6 +1,7 @@
 # A Layered Framework for Compact-Resolvent Spectral Encodings
 
-[![Version](https://img.shields.io/badge/version-v0.2.0-blue)](#versioning)
+[![Metadata revision](https://img.shields.io/badge/metadata-v0.2.1-blue)](#metadata-status)
+[![Frozen release](https://img.shields.io/badge/archive-v0.2.0-lightgrey)](#metadata-status)
 [![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-green)](LICENSE)
 [![Status: expository preprint](https://img.shields.io/badge/status-expository%20preprint-orange)](#scientific-status)
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FRWPGA-blue)](https://doi.org/10.17605/OSF.IO/RWPGA)
@@ -20,6 +21,17 @@ Canonical repository: [Observer1117/compact-resolvent-spectral-encodings](https:
 
 Immutable archival record: [OSF Registration](https://osf.io/rwpga/) ([DOI 10.17605/OSF.IO/RWPGA](https://doi.org/10.17605/OSF.IO/RWPGA)). The associated editable project is available at [OSF Project a9fws](https://osf.io/a9fws/).
 
+## Metadata status
+
+The mathematical archival object is **v0.2.0** and remains frozen. Git tag `v0.2.0` points to commit `91aeed526a126ede56397fe42e7393bfbc30d3f6`; its GitHub Release was published on **1 August 2026 at 05:55:04 UTC**. The OSF DOI identifies that frozen Version 0.2 object.
+
+The current repository metadata revision is **v0.2.1 (11 August 2026)**. It resolves two packaging issues without changing mathematical content:
+
+1. `2026-07-27` is retained only as the historical v0.2 mathematical-hardening/version date; it is no longer represented as the public release date.
+2. the frozen source's PDF author field contains both `Stassis Stashkevichyus` and `Stassis Research Program`; the v0.2.1 builder emits PDF author metadata containing the human author only.
+
+See [`metadata/date_ledger_v0.2.1.yaml`](metadata/date_ledger_v0.2.1.yaml) and [`metadata/metadata_audit_v0.2.1.md`](metadata/metadata_audit_v0.2.1.md). The v0.2.0 tag, release asset, PDF, source, checksums, and OSF Registration are not rewritten.
+
 ## Scientific status
 
 This is an **expository framework preprint**. It systematizes standard results from operator theory, heat-kernel theory, harmonic analysis, and compact-group representation theory. It does **not** claim a new general theorem in spectral geometry, a physical compactification model, or an inverse spectral theorem. It has not been peer reviewed.
@@ -38,41 +50,54 @@ The manuscript:
 
 ## Files
 
-- [`paper/compact_resolvent_spectral_encodings_v0_2.pdf`](paper/compact_resolvent_spectral_encodings_v0_2.pdf) — current manuscript.
-- [`source/main.tex`](source/main.tex) — self-contained LaTeX source.
+- [`paper/compact_resolvent_spectral_encodings_v0_2.pdf`](paper/compact_resolvent_spectral_encodings_v0_2.pdf) — frozen archival v0.2.0 manuscript.
+- [`source/main.tex`](source/main.tex) — frozen self-contained v0.2.0 LaTeX source.
+- [`scripts/build_metadata_revision.py`](scripts/build_metadata_revision.py) — SHA-guarded v0.2.1 metadata-only builder.
 - [`audit/referee_audit_v0_2.md`](audit/referee_audit_v0_2.md) — proof and bibliography ledger.
-- [`metadata/publication_metadata.yaml`](metadata/publication_metadata.yaml) — canonical structured metadata.
-- [`metadata/citation.bib`](metadata/citation.bib) — BibTeX citation record.
-- [`metadata/osf_registration_metadata.md`](metadata/osf_registration_metadata.md) — copy-ready OSF fields.
-- [`metadata/release_notes_v0.2.0.md`](metadata/release_notes_v0.2.0.md) — GitHub Release text.
-- [`metadata/metadata_audit.md`](metadata/metadata_audit.md) — consistency and unresolved-field audit.
-- [`metadata/build_environment.txt`](metadata/build_environment.txt) — verified build environment and result.
-- [`checksums/SHA256SUMS`](checksums/SHA256SUMS) — integrity manifest.
+- [`metadata/publication_metadata.yaml`](metadata/publication_metadata.yaml) — canonical structured metadata with typed dates.
+- [`metadata/date_ledger_v0.2.1.yaml`](metadata/date_ledger_v0.2.1.yaml) — publication-event date ledger.
+- [`metadata/metadata_audit_v0.2.1.md`](metadata/metadata_audit_v0.2.1.md) — current metadata consistency audit.
+- [`metadata/citation.bib`](metadata/citation.bib) — BibTeX citation record for the frozen Version 0.2 object.
+- [`metadata/osf_registration_metadata.md`](metadata/osf_registration_metadata.md) — historical OSF registration fields.
+- [`checksums/SHA256SUMS`](checksums/SHA256SUMS) — frozen v0.2.0 package integrity manifest.
 
 ## Build
 
-Requirements: PDFLaTeX with the standard packages listed in `source/main.tex`. The package was reproduced byte-for-byte with TeX Live 2023; the earlier arXiv-compatibility audit targeted TeX Live 2025.
+Requirements: Python 3 and PDFLaTeX/`latexmk` with the standard packages listed in the frozen source.
+
+The default build produces the **v0.2.1 metadata-only successor**. Before any transformation it verifies that `source/main.tex` still has the frozen SHA-256 `5babef3ab8c8ed04b243e4d818809751a7bfe4f20d000f29e88dfbc8db752d5f`.
 
 ```bash
-cd source
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+make
 ```
 
-Without `latexmk`, run `pdflatex` twice:
+The generated successor is written to:
+
+```text
+paper/compact_resolvent_spectral_encodings_v0_2_1.pdf
+```
+
+To verify the metadata transformation without compiling:
 
 ```bash
-cd source
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
-pdflatex -interaction=nonstopmode -halt-on-error main.tex
+make metadata-check
 ```
+
+To compile the historical frozen source directly:
+
+```bash
+make frozen-v0.2.0
+```
+
+The v0.2.1 build permits exactly two reversible presentation/metadata substitutions: the PDF `Author` field and the title-page metadata-revision label. Reversing those substitutions must recover the frozen source exactly.
 
 ## Citation
 
-Use the immutable OSF Registration as the primary citation record for Version 0.2:
+Use the immutable OSF Registration as the primary citation record for the frozen Version 0.2 manuscript:
 
 > Stashkevichyus, Stassis. (2026). *A Layered Framework for Compact-Resolvent Spectral Encodings* (Version 0.2). OSF. [https://doi.org/10.17605/OSF.IO/RWPGA](https://doi.org/10.17605/OSF.IO/RWPGA)
 
-Machine-readable citation metadata are available in [`CITATION.cff`](CITATION.cff) and [`metadata/citation.bib`](metadata/citation.bib). The DOI was added as a metadata-only update; the mathematical content and frozen PDF of v0.2.0 are unchanged.
+The public GitHub Release was published on 1 August 2026. Machine-readable citation metadata are available in [`CITATION.cff`](CITATION.cff) and [`metadata/citation.bib`](metadata/citation.bib). `CITATION.cff` separates the current repository metadata revision from the frozen DOI-bearing preferred citation.
 
 ## Reporting errors
 
@@ -80,6 +105,7 @@ Use the issue templates for either a mathematical error or a bibliographic/typog
 
 ## Versioning
 
+- `v0.2.0`: frozen archival mathematical manuscript registered on OSF;
 - `v0.2.x`: metadata, packaging, or typographical corrections that do not change mathematical content;
 - `v0.3`: changed definitions, statements, proofs, or substantial exposition;
 - `v1.0`: reserved for a version hardened after independent external mathematical review.
