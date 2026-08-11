@@ -1,0 +1,79 @@
+schema:
+  name: "observer-research-output"
+  version: "1.0.0"
+
+work:
+  id: "CRSE-0.2"
+  title: "A Layered Framework for Compact-Resolvent Spectral Encodings"
+  short_title: "Compact-Resolvent Spectral Encodings"
+  metadata_record_version: "0.2.1"
+  citation_version: "0.2"
+  release_tag: "v0.2.0"
+  resource_type: "expository-preprint"
+  language: "en"
+  peer_reviewed: false
+
+author:
+  given_name: "Stassis"
+  family_name: "Stashkevichyus"
+  display_name: "Stassis Stashkevichyus"
+  role: "Independent Researcher"
+  location: "Vilnius, Lithuania"
+  orcid: "https://orcid.org/0009-0000-2294-705X"
+  email: "theobserver.of.multiverses@proton.me"
+
+project:
+  name: "The Observer of Multiverses"
+  website: "https://theobserverofmultiverses.info"
+  author_entity: false
+
+publication:
+  release_status: "metadata-successor-of-frozen-preprint"
+  review_status: "not-peer-reviewed"
+  doi: "10.17605/OSF.IO/RWPGA"
+  doi_scope: "frozen-version-0.2"
+  osf_registration_url: "https://osf.io/rwpga/"
+  repository_url: "https://github.com/Observer1117/compact-resolvent-spectral-encodings"
+  github_release_url: "https://github.com/Observer1117/compact-resolvent-spectral-encodings/releases/tag/v0.2.0"
+
+dates:
+  display_date: "2026-08-01"
+  display_date_meaning: "Public GitHub Release date for the frozen v0.2.0 archival manuscript."
+  historical_version_date: "2026-07-27"
+  manuscript_revision_date: "2026-08-01"
+  github_release_published_at: "2026-08-01T05:55:04Z"
+  archival_metadata_added_date: "2026-08-01"
+  metadata_revision_date: "2026-08-11"
+
+license_scope:
+  - scope: "original-repository-content"
+    license: "CC-BY-4.0"
+
+scientific_status:
+  summary: >-
+    Expository operator-theoretic framework that systematizes standard spectral
+    constructions and failure modes. It does not claim a new general theorem in
+    spectral geometry, a physical compactification model, or an inverse spectral theorem.
+  claim_boundary_path: "audit/referee_audit_v0_2.md"
+  reproducibility_path: "metadata/metadata_audit_v0.2.1.md"
+
+wordpress:
+  content_type: "research_output"
+  slug: "compact-resolvent-spectral-encodings"
+  site_path: "/research/compact-resolvent-spectral-encodings/"
+  priority: 2
+  badges:
+    - "Expository preprint"
+    - "Archive v0.2.0"
+    - "Metadata v0.2.1"
+    - "OSF DOI"
+    - "Not peer reviewed"
+
+provenance:
+  citation_source: "CITATION.cff"
+  readme_source: "README.md"
+  source_program_label: "Stassis Research Program"
+  date_ledger: "metadata/date_ledger_v0.2.1.yaml"
+  normalization_note: >-
+    The current repository metadata record is v0.2.1, while the DOI identifies
+    the frozen Version 0.2 archival object. Program labels are not author entities.
