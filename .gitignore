@@ -8,4 +8,5 @@
 *.synctex.gz
 *.toc
 source/main.pdf
-
+build/
+paper/compact_resolvent_spectral_encodings_v0_2_1.pdf
