@@ -1,0 +1,28 @@
+title: "A Certified Seventh Min–Max Index Below the Essential Threshold"
+subtitle: "Refined Composite Quadrature, Sub-Unit Entry Validation, and Exact Rational Threshold Separation"
+branch: "A.8.10"
+theorem_version: "0.8.10"
+replication_version: "R2-v0.2"
+release_date: "2026-08-09"
+author:
+  name: "Stassis Stashkevichyus"
+  affiliation: "Independent Researcher"
+  orcid: "0009-0000-2294-705X"
+  email: "theobserver.of.multiverses@proton.me"
+license: "CC BY 4.0"
+status:
+  theorem: "computer-assisted"
+  implementation_replication: "PASS"
+  actor_separated_external_replication: "OPEN"
+  peer_review: "NOT_DONE"
+github:
+  repository: "Observer1117/compact-resolvent-spectral-encodings"
+  proposed_path: "research/A/A8.10"
+  publication_branch: "publication-a8-10-r2"
+osf:
+  parent_project: "https://osf.io/a9fws/"
+  earlier_registration: "https://osf.io/rwpga/"
+  earlier_registration_doi: "10.17605/OSF.IO/RWPGA"
+  component_url: "PENDING"
+  registration_url: "PENDING"
+  registration_doi: "PENDING"
